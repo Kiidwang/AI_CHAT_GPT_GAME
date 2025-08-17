@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>AI Text Adventure</title>
+  </head>
+  <body>
+    <h1>AI Text Adventure</h1>
+    <p>{{ story }}</p>
+    {% if options %}
+    <form method="post" action="{{ url_for('play') }}">
+      {% for opt in options %}
+      <div>
+        <button type="submit" name="option" value="{{ opt }}">{{ opt }}</button>
+      </div>
+      {% endfor %}
+    </form>
+    {% else %}
+    <p><em>No more options available.</em></p>
+    <a href="{{ url_for('index') }}">Start over</a>
+    {% endif %}
+  </body>
+</html>
